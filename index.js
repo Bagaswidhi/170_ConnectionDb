@@ -3,4 +3,15 @@ import pg from 'pg';
 
 const app = express();
 const port = 3000;
-const {pool} = pg;
+const {Pool} = pg;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true, }));
+
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'mahasiswa',
+  password: 'bagas3005',
+  port: 5432,
+});
